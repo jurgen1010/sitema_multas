@@ -11,6 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/tipos-vehiculo")
+@CrossOrigin(origins = "http://localhost:3000")
+
 public class TipoVehiculoController {
     private final TipoVehiculoService tipoVehiculoService;
 

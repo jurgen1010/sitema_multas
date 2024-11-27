@@ -6,9 +6,12 @@ import com.movilidad.SistemaMultas.service.UsuarioService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
+@CrossOrigin(origins = "http://localhost:3000")
+
 public class UsuarioController {
     private final UsuarioService usuarioService;
 
@@ -29,5 +32,16 @@ public class UsuarioController {
     @DeleteMapping("/{id}")
     public void eliminarUsuario(@PathVariable Long id) {
         usuarioService.eliminarUsuario(id);
+    }
+
+
+    @PutMapping("/{id}")
+    public Usuario actualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
+        return usuarioService.actualizarUsuario(id, usuario);
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Usuario> obtenerUsuarioPorID(@PathVariable Long id) {
+        return usuarioService.obtenerUsuarioPorId(id);
     }
 }

@@ -16,6 +16,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/infracciones")
+@CrossOrigin(origins = "http://localhost:3000")
+
 public class InfraccionController {
 
     private final InfraccionService infraccionService;

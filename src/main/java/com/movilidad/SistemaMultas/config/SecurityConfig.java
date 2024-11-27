@@ -15,13 +15,13 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http.cors().and().csrf().disable()
                 .authorizeRequests()
                 .requestMatchers("/usuarios/**").permitAll()  // Permitir acceso público a /usuarios
                 .requestMatchers("/tipos-vehiculo/**").hasRole("ADMINISTRADOR")// Requiere rol ADMINISTRADOR
                 .anyRequest().authenticated()               // El resto requiere autenticación
                 .and()
-                .httpBasic();                               // Usar autenticación básica
+                .httpBasic();                                 // Usar autenticación básica
         return http.build();
     }
 

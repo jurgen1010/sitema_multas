@@ -3,16 +3,15 @@ package com.movilidad.SistemaMultas.controller;
 import com.movilidad.SistemaMultas.exception.ResourceNotFoundException;
 import com.movilidad.SistemaMultas.service.ReportesService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 
 @RestController
 @RequestMapping("/reportes")
+@CrossOrigin(origins = "http://localhost:3000")
+
 public class ReportesController {
     private final ReportesService reportesService;
 

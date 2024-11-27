@@ -10,6 +10,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/imagenes")
+@CrossOrigin(origins = "http://localhost:3000")
+
 public class ImagenController {
     private final ImagenService imagenService;
 
